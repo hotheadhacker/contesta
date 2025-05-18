@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Modal from '../components/Modal';
 import CountdownTimer from '../components/CountdownTimer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -21,7 +23,9 @@ export default function Home() {
     reason: ''
   });
 
-  const contestStartDate = '2025-05-19T00:00:00.000Z';
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const contestStartDate = '2025-05-19T12:00:00.000Z';
   const contestEndDate = '2025-06-10T23:59:59.999Z';
   const [countdownType, setCountdownType] = useState('begins');
   const [countdownTarget, setCountdownTarget] = useState(contestStartDate);
@@ -79,6 +83,7 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true);
     setIsLoading(true);
     setError(null);
     try {
@@ -91,8 +96,24 @@ export default function Home() {
       if (!response.ok) throw new Error(data.error || 'Failed to submit entry');
       setFormData({ name: '', email: '', repo: '', reason: '' });
       setIsModalOpen(false);
-      alert('Submission successful! Your project has been entered into the contest.');
-      fetchSubmissionCount();
+      toast.success('Submission successful! Your project has been entered into the contest.', {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        style: {
+          background: 'linear-gradient(90deg, #fef9c3 0%, #fde047 100%)',
+          color: '#92400e',
+          border: '2px solid #facc15',
+          borderRadius: '12px',
+          fontWeight: 600,
+          fontSize: '1.1rem'
+        }
+      });
     } catch (err) {
       setError(err.message);
     } finally {
@@ -152,6 +173,39 @@ export default function Home() {
           Submit your most impactful open-source project. Gain recognition, win rewards,
           and join the future of ethical monetization with GitAds.
         </p>
+
+        {/* Centralized and more attractive CTA button */}
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            style={{
+              background: 'linear-gradient(90deg, #fde047 0%, #facc15 100%)', // yellow gradient
+              color: '#1a1a1a',
+              fontWeight: 'bold',
+              fontSize: '1.25rem',
+              padding: '1rem 2.5rem',
+              border: 'none',
+              borderRadius: '2rem',
+              boxShadow: '0 4px 24px rgba(250,204,21,0.15)',
+              cursor: 'pointer',
+              transition: 'transform 0.1s, box-shadow 0.1s',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              outline: 'none'
+            }}
+            onMouseOver={e => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(250,204,21,0.25)';
+            }}
+            onMouseOut={e => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 4px 24px rgba(250,204,21,0.15)';
+            }}
+            aria-label="Join the Contest"
+          >
+            📝 Join the Contest
+          </button>
+        </div>
 
         <div className="tabs">
           <button className={`tab-button ${activeTab === 'about' ? 'active' : ''}`} onClick={() => setActiveTab('about')}>About</button>
@@ -300,14 +354,71 @@ export default function Home() {
           title="Submit Your Project"
         >
           <form onSubmit={handleSubmit} className="submission-form">
-            <input type="text" id="name" value={formData.name} onChange={handleInputChange} placeholder="Your Name" required />
-            <input type="email" id="email" value={formData.email} onChange={handleInputChange} placeholder="Your Email" required />
-            <input type="url" id="repo" value={formData.repo} onChange={handleInputChange} placeholder="GitHub Repository URL" required />
-            <textarea id="reason" value={formData.reason} onChange={handleInputChange} placeholder="Why is this project valuable?" required />
+            <input
+              type="text"
+              id="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="Your Name"
+              required
+              className={
+                hasSubmitted
+                  ? !formData.name
+                    ? 'input-error'
+                    : 'input-valid'
+                  : ''
+              }
+            />
+            <input
+              type="email"
+              id="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Your Email"
+              required
+              className={
+                hasSubmitted
+                  ? !formData.email
+                    ? 'input-error'
+                    : 'input-valid'
+                  : ''
+              }
+            />
+            <input
+              type="url"
+              id="repo"
+              value={formData.repo}
+              onChange={handleInputChange}
+              placeholder="GitHub Repository URL"
+              required
+              className={
+                hasSubmitted
+                  ? !formData.repo
+                    ? 'input-error'
+                    : 'input-valid'
+                  : ''
+              }
+            />
+            <textarea
+              id="reason"
+              value={formData.reason}
+              onChange={handleInputChange}
+              placeholder="Why is this project valuable?"
+              required
+              className={
+                hasSubmitted
+                  ? !formData.reason
+                    ? 'input-error'
+                    : 'input-valid'
+                  : ''
+              }
+            />
             {error && <div className="error-message">{error}</div>}
             <button type="submit" disabled={isLoading}>{isLoading ? 'Submitting...' : 'Submit Entry'}</button>
           </form>
         </Modal>
+
+        <ToastContainer />
       </div>
     </>
   );
