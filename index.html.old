@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitAds Open-Source Spotlight Contest</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #000000, #1f1f1f, #2d2d2d);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p.description {
+      max-width: 700px;
+      text-align: center;
+      color: #cccccc;
+      margin-bottom: 40px;
+    }
+    .tabs {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .tabs button {
+      background: none;
+      border: none;
+      color: #bbb;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    .tabs button.active {
+      color: #fff;
+      border-color: #2563eb;
+    }
+    .card {
+      background-color: rgba(30, 30, 30, 0.8);
+      border: 1px solid #444;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .section p {
+      color: #aaaaaa;
+      font-size: 0.95rem;
+    }
+    .email-subscribe, .submission-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      background-color: #1e1e1e;
+      border: 1px solid #555;
+      color: white;
+      border-radius: 6px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #3b82f6;
+    }
+    .footer-note {
+      margin-top: 30px;
+      color: #777;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    a {
+      color: #60a5fa;
+      text-decoration: underline;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .entry {
+      border-bottom: 1px solid #444;
+      padding: 15px 0;
+    }
+    .entry h3 {
+      margin: 0 0 5px;
+    }
+    .entry p {
+      margin: 2px 0;
+      font-size: 0.9rem;
+    }
+    .entry a {
+      word-break: break-all;
+    }
+    
+    /* Modal styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    
+    .modal {
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 550px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease-out;
+      border: 1px solid #444;
+    }
+    
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 15px;
+    }
+    
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #60a5fa, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s;
+    }
+    
+    .close-modal:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    
+    .modal-body {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .modal .submission-form {
+      margin-top: 0;
+      width: 100%;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      padding: 12px 24px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      transform: translateY(-2px);
+    }
+    
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .no-entries {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+    
+    .error-message {
+      color: #ff6b6b;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 GitAds Open-Source Spotlight Contest</h1>
+  <p class="description">
+    Submit your most impactful open-source project. Gain recognition, win rewards,
+    and join the future of ethical monetization with GitAds.
+  </p>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('about')">About</button>
+    <button class="tab-button" onclick="showTab('submissions')">Submissions</button>
+    <button class="tab-button" onclick="showTab('winners')">Winners</button>
+  </div>
+
+  <div class="card">
+    <div id="about" class="tab-content active">
+      <div class="section">
+        <h2>📁 Register & Verify Your Repository</h2>
+        <p>
+          Sign up as a publisher at <a href="https://gitads.dev" target="_blank">gitads.dev</a> and verify your project to enter.
+        </p>
+      </div>
+      <div class="section">
+        <h2>🐦 Follow @git_ads</h2>
+        <p>
+          Stay updated and increase your chances of being featured. Follow us on <a href="https://x.com/git_ads" target="_blank">X</a>.
+        </p>
+      </div>
+      <div class="section">
+        <h2>⭐ Get Featured on @githubprojects</h2>
+        <p>
+          Top entries will be highlighted on <a href="https://x.com/githubprojects" target="_blank">@githubprojects</a> for extra visibility.
+        </p>
+      </div>
+      <div class="section">
+        <button onclick="openModal()">📝 Join the Contest</button>
+      </div>
+    </div>
+
+    <div id="submissions" class="tab-content">
+      <div class="section">
+        <h2>📦 All Submissions</h2>
+        <div id="entries"></div>
+        <button id="load-more-btn" onclick="loadMore()">Load More</button>
+      </div>
+    </div>
+
+    <div id="winners" class="tab-content">
+      <div class="section">
+        <h2>🏆 Winners</h2>
+        <p>Winners will be announced after the contest ends. Follow us for updates!</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-note">
+    Contest runs from May 20, 2025 to June 10, 2025. All entries must follow the guidelines.
+  </p>
+
+  <!-- Modal -->
+  <div id="form-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Submit Your Project</h2>
+        <button class="close-modal" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="submission-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="repo">GitHub Repository URL</label>
+            <input type="url" id="repo" placeholder="https://github.com/username/repository" required />
+          </div>
+          <div class="form-group">
+            <label for="reason">Why is this project valuable?</label>
+            <textarea id="reason" placeholder="Tell us about the impact and value of your project..." required></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button onclick="closeModal()">Cancel</button>
+        <button id="submit-btn" class="submit-btn" onclick="submitForm(event)">Submit Entry</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configuration
+    const NOCODB_URL = 'https://cloud.nocodb.com';
+    const NOCODB_PROJECT_NAME = 'nc_project_id';  // Replace with your actual project ID
+    const NOCODB_TABLE_NAME = 'Submissions';
+    const NOCODB_API_TOKEN = '5WaLaIBj_t9zcXAm3ClD8NxHLtO6_11T5mL0iFf6';  // Replace with your actual token
+    const PAGE_SIZE = 5;
+    
+    // State
+    let offset = 0;
+    
+    // UI Functions
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      
+      // Find the button that corresponds to this tab and make it active
+      const buttonIndex = tabId === 'about' ? 0 : tabId === 'submissions' ? 1 : 2;
+      document.querySelectorAll('.tab-button')[buttonIndex].classList.add('active');
+      
+      if (tabId === 'submissions') {
+        offset = 0; // Reset offset when switching to submissions tab
+        document.getElementById('entries').innerHTML = ''; // Clear existing entries
+        loadEntries();
+      }
+    }
+    
+    function openModal() {
+      const modal = document.getElementById('form-modal');
+      modal.style.display = 'flex';
+      // Add a small delay before adding the active class for animation
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 10);
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('form-modal');
+      modal.classList.remove('active');
+      // Wait for animation to complete before hiding
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
+    }
+    
+    // API Functions
+    async function submitForm(event) {
+      event.preventDefault();
+      
+      // Get form data
+      const data = {
+        Name: document.getElementById('name').value.trim(),
+        Email: document.getElementById('email').value.trim(),
+        Repository: document.getElementById('repo').value.trim(),
+        Reason: document.getElementById('reason').value.trim(),
+        SubmittedAt: new Date().toISOString()
+      };
+      
+      // Validate form
+      if (!data.Name || !data.Email || !data.Repository || !data.Reason) {
+        alert('Please fill in all fields');
+        return;
+      }
+      
+            // Basic URL validation
+      const urlRegex = /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/?$/;
+      if (!urlRegex.test(data.Repository)) {
+        alert('Please enter a valid GitHub repository URL');
+        return;
+      }
+      
+      // Show loading state
+      const submitBtn = document.getElementById('submit-btn');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<div class="loading"></div> Submitting...';
+      submitBtn.disabled = true;
+      
+      try {
+        // NocoDB API endpoint for creating a record
+        const apiUrl = `${NOCODB_URL}/api/v1/db/data/noco/${NOCODB_PROJECT_NAME}/${NOCODB_TABLE_NAME}`;
+        
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'xc-auth': NOCODB_API_TOKEN
+          },
+          body: JSON.stringify(data)
+        });
+        
+        const responseData = await response.json();
+        
+        if (response.ok) {
+          alert('Submission successful! Thank you for participating.');
+          closeModal();
+          // Reset form
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('repo').value = '';
+          document.getElementById('reason').value = '';
+          
+          // Refresh submissions if on submissions tab
+          if (document.getElementById('submissions').classList.contains('active')) {
+            offset = 0;
+            document.getElementById('entries').innerHTML = '';
+            loadEntries();
+          }
+        } else {
+          alert(`Error: ${responseData.msg || 'Failed to submit. Please try again later.'}`);
+          console.error('Submission error:', responseData);
+        }
+      } catch (error) {
+        alert('Network error. Please check your connection and try again.');
+        console.error('Error:', error);
+      } finally {
+        // Restore button state
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    async function loadEntries() {
+      const container = document.getElementById('entries');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      
+      // Show loading indicator if this is the first batch
+      if (offset === 0) {
+        container.innerHTML = '<div style="text-align: center; padding: 20px;"><div class="loading"></div> Loading submissions...</div>';
+      }
+      
+      try {
+        // NocoDB API endpoint for listing records
+        const apiUrl = `${NOCODB_URL}/api/v1/db/data/noco/${NOCODB_PROJECT_NAME}/${NOCODB_TABLE_NAME}?limit=${PAGE_SIZE}&offset=${offset}&sort=-SubmittedAt`;
+        
+        const response = await fetch(apiUrl, {
+          headers: {
+            'xc-auth': NOCODB_API_TOKEN
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch submissions');
+        }
+        
+        const data = await response.json();
+        
+        // Clear loading indicator if this is the first batch
+        if (offset === 0) {
+          container.innerHTML = '';
+        }
+        
+        if (data.list && data.list.length > 0) {
+          data.list.forEach(record => {
+            const div = document.createElement('div');
+            div.className = 'entry';
+            
+            // Format date if available
+            let dateDisplay = '';
+            if (record.SubmittedAt) {
+              const date = new Date(record.SubmittedAt);
+              dateDisplay = `<p><small>Submitted on ${date.toLocaleDateString()}</small></p>`;
+            }
+            
+            div.innerHTML = `
+              <h3>${record.Name || 'Anonymous'}</h3>
+              <p><strong>Repository:</strong> <a href="${record.Repository}" target="_blank">${record.Repository}</a></p>
+              <p>${record.Reason || 'No description provided'}</p>
+              ${dateDisplay}
+            `;
+            container.appendChild(div);
+          });
+          
+          // Update offset for pagination
+          offset += data.list.length;
+          
+          // Hide load more button if no more records
+          if (data.pageInfo && data.pageInfo.isLastPage) {
+            loadMoreBtn.style.display = 'none';
+          } else {
+            loadMoreBtn.style.display = 'block';
+          }
+        } else {
+          if (offset === 0) {
+            container.innerHTML = '<p class="no-entries">No submissions yet. Be the first to submit your project!</p>';
+          }
+          loadMoreBtn.style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Error loading entries:', error);
+        container.innerHTML = '<p class="error-message">Error loading submissions. Please try again later.</p>';
+        loadMoreBtn.style.display = 'none';
+      }
+    }
+
+    function loadMore() {
+      loadEntries();
+    }
+    
+    // Close modal if user clicks outside of it
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('form-modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Close modal with Escape key
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
