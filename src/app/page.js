@@ -254,9 +254,10 @@ export default function Home() {
                   <div className={styles.rewardBadge}>1st</div>
                   <h3>GitHub Projects "Open-Source Champ Award"</h3>
                   <ul>
-                    <li>T-shirt and goodies worth $110</li>
-                    <li>Featured spotlight on the GitHubProjects platform</li>
-                    <li>Exclusive winner's certificate</li>
+                    <li>Certification of Achievement</li>
+                    <li>4 Months ChatGPT subscription</li>
+                    <li>6 Months GitHub Pro subscription including Copilot</li>
+                    <li>Featured project showcase on GitHubProjects</li>
                     <li>Social media recognition</li>
                   </ul>
                 </div>
@@ -266,9 +267,10 @@ export default function Home() {
                   <div className={styles.rewardBadge}>2nd</div>
                   <h3>GitHub Projects "Runner-up Award"</h3>
                   <ul>
-                    <li>T-shirt and goodies worth $80</li>
-                    <li>Featured spotlight on the GitHubProjects platform</li>
-                    <li>Runner-up certificate</li>
+                    <li>Certification of Achievement</li>
+                    <li>3 Months ChatGPT subscription</li>
+                    <li>4 Months GitHub Pro subscription including Copilot</li>
+                    <li>Featured project showcase on GitHubProjects</li>
                     <li>Social media mention</li>
                   </ul>
                 </div>
@@ -278,19 +280,20 @@ export default function Home() {
                   <div className={styles.rewardBadge}>3rd</div>
                   <h3>GitHub Projects "Bronze Award"</h3>
                   <ul>
-                    <li>T-shirt and goodies worth $45</li>
-                    <li>Featured spotlight on the GitHubProjects platform</li>
-                    <li>Bronze certificate</li>
+                    <li>Certification of Achievement</li>
+                    <li>2 Months ChatGPT subscription</li>
+                    <li>2 Months GitHub Pro subscription including Copilot</li>
+                    <li>Featured project showcase on GitHubProjects</li>
                     <li>Social media mention</li>
                   </ul>
                 </div>
                 
-                {/* Top 50 */}
+                {/* Top 10 */}
                 <div className={styles.rewardCard}>
-                  <div className={styles.rewardBadge}>Top 50</div>
+                  <div className={styles.rewardBadge}>Top 10</div>
                   <h3>Open-Source Contributor Recognition</h3>
                   <ul>
-                    <li>Open-source goodies coupons</li>
+                    <li>2 Months GitHub Pro subscription including Copilot</li>
                     <li>Digital participation certificate</li>
                     <li>Recognition in our community newsletter</li>
                   </ul>
