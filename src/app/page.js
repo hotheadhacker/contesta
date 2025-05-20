@@ -253,50 +253,104 @@ export default function Home() {
                 <div className={styles.rewardCard}>
                   <div className={styles.rewardBadge}>1st</div>
                   <h3>GitHub Projects "Open-Source Champ Award"</h3>
-                  <ul>
-                    <li>Certification of Achievement</li>
-                    <li>4 Months ChatGPT subscription</li>
-                    <li>6 Months GitHub Pro subscription including Copilot</li>
-                    <li>Featured project showcase on GitHubProjects</li>
-                    <li>Social media recognition</li>
-                  </ul>
+                  <div className={styles.rewardLogos}>
+                    <div className={styles.logoItem}>
+                      <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
+                      <span>Certification</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="https://freelogopng.com/images/all_img/1681038887chatgpt-logo%20black-and-white.png" alt="ChatGPT" width={40} height={40} />
+                      <span>4 Months ChatGPT</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
+                      <span>6 Months GitHub Pro</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
+                      <span>GitHub Copilot</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
+                      <span>Project Showcase</span>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Second place */}
                 <div className={styles.rewardCard}>
                   <div className={styles.rewardBadge}>2nd</div>
                   <h3>GitHub Projects "Runner-up Award"</h3>
-                  <ul>
-                    <li>Certification of Achievement</li>
-                    <li>3 Months ChatGPT subscription</li>
-                    <li>4 Months GitHub Pro subscription including Copilot</li>
-                    <li>Featured project showcase on GitHubProjects</li>
-                    <li>Social media mention</li>
-                  </ul>
+                  <div className={styles.rewardLogos}>
+                    <div className={styles.logoItem}>
+                      <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
+                      <span>Certification</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="https://freelogopng.com/images/all_img/1681038887chatgpt-logo%20black-and-white.png" alt="ChatGPT" width={40} height={40} />
+                      <span>3 Months ChatGPT</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
+                      <span>4 Months GitHub Pro</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
+                      <span>GitHub Copilot</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
+                      <span>Project Showcase</span>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Third place */}
                 <div className={styles.rewardCard}>
                   <div className={styles.rewardBadge}>3rd</div>
                   <h3>GitHub Projects "Bronze Award"</h3>
-                  <ul>
-                    <li>Certification of Achievement</li>
-                    <li>2 Months ChatGPT subscription</li>
-                    <li>2 Months GitHub Pro subscription including Copilot</li>
-                    <li>Featured project showcase on GitHubProjects</li>
-                    <li>Social media mention</li>
-                  </ul>
+                  <div className={styles.rewardLogos}>
+                    <div className={styles.logoItem}>
+                      <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
+                      <span>Certification</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="https://freelogopng.com/images/all_img/1681038887chatgpt-logo%20black-and-white.png" alt="ChatGPT" width={40} height={40} />
+                      <span>2 Months ChatGPT</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
+                      <span>2 Months GitHub Pro</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
+                      <span>GitHub Copilot</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
+                      <span>Project Showcase</span>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Top 10 */}
                 <div className={styles.rewardCard}>
                   <div className={styles.rewardBadge}>Top 10</div>
                   <h3>Open-Source Contributor Recognition</h3>
-                  <ul>
-                    <li>2 Months GitHub Pro subscription including Copilot</li>
-                    <li>Digital participation certificate</li>
-                    <li>Recognition in our community newsletter</li>
-                  </ul>
+                  <div className={styles.rewardLogos}>
+                    <div className={styles.logoItem}>
+                      <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
+                      <span>2 Months GitHub Pro</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
+                      <span>GitHub Copilot</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
+                      <span>Digital Certificate</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               

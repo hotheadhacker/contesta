@@ -11,6 +11,9 @@ const nextConfig = {
     }
     return config
   },
+  images: {
+    domains: ['github.com', 'cdn.pixabay.com', 'freelogopng.com', 'i.pinimg.com'],
+  },
 }
 
 module.exports = nextConfig
