@@ -323,12 +323,12 @@ export default function Home() {
                       <span>1 Month GitHub Pro</span>
                     </div>
                     <div className={styles.logoItem}>
-                      <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
-                      <span>Certification</span>
-                    </div>
-                    <div className={styles.logoItem}>
                       <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
                       <span>GitAds $10</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
+                      <span>Project Showcase</span>
                     </div>
                   </div>
                 </div>
@@ -339,12 +339,12 @@ export default function Home() {
                   <h3>Open-Source Contributor Recognition</h3>
                   <div className={styles.rewardLogos}>
                     <div className={styles.logoItem}>
-                      <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
-                      <span>GitAds $5</span>
+                      <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
+                      <span>Certification</span>
                     </div>
                     <div className={styles.logoItem}>
-                      <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
-                      <span>Digital Certificate</span>
+                      <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
+                      <span>GitAds $5</span>
                     </div>
                   </div>
                 </div>
