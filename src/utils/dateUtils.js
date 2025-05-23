@@ -1,6 +1,6 @@
 // Contest dates configuration
-const CONTEST_START_DATE = new Date('May 26, 2025 00:00:00');
-const CONTEST_END_DATE = new Date('June 20, 2025 23:59:59');
+const CONTEST_START_DATE = new Date('May 23, 2025 00:00:00');
+const CONTEST_END_DATE = new Date('June 23, 2025 23:59:59');
 
 /**
  * Get the contest start date

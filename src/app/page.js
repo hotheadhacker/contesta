@@ -25,8 +25,8 @@ export default function Home() {
 
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const contestStartDate = '2025-05-19T12:00:00.000Z';
-  const contestEndDate = '2025-06-10T23:59:59.999Z';
+  const contestStartDate = '2025-05-24T12:00:00.000Z';
+  const contestEndDate = '2025-06-24T23:59:59.999Z';
   const [countdownType, setCountdownType] = useState('begins');
   const [countdownTarget, setCountdownTarget] = useState(contestStartDate);
 
@@ -227,7 +227,7 @@ export default function Home() {
             <div className="section">
               <h2>🐦 Follow @git_ads</h2>
               <p>
-                Stay updated and increase your chances of being featured. Follow us on <a href="https://x.com/git_ads" target="_blank" rel="noopener noreferrer">X</a>.
+                Stay updated and increase your chances of being featured. Follow us on <a href="https://x.com/git_ads" target="_blank" rel="noopener noreferrer">X/Twitter</a>.
               </p>
             </div>
             <div className="section">
@@ -397,7 +397,7 @@ export default function Home() {
         </div>
 
         <p className="footer-note">
-          Contest runs from May 20, 2025 to June 10, 2025. All entries must follow the guidelines.
+          Contest runs from May 24, 2025 to June 23, 2025. All entries must follow the guidelines.
         </p>
 
         <Modal 
