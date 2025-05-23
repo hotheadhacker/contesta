@@ -260,15 +260,15 @@ export default function Home() {
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="https://freelogopng.com/images/all_img/1681038887chatgpt-logo%20black-and-white.png" alt="ChatGPT" width={40} height={40} />
-                      <span>4 Months ChatGPT</span>
+                      <span>3 Months ChatGPT Plus</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
-                      <span>6 Months GitHub Pro</span>
+                      <span>3 Months GitHub Pro</span>
                     </div>
                     <div className={styles.logoItem}>
-                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
-                      <span>GitHub Copilot</span>
+                      <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
+                      <span>GitAds $30</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
@@ -288,15 +288,15 @@ export default function Home() {
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="https://freelogopng.com/images/all_img/1681038887chatgpt-logo%20black-and-white.png" alt="ChatGPT" width={40} height={40} />
-                      <span>3 Months ChatGPT</span>
+                      <span>2 Months ChatGPT Plus</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
-                      <span>4 Months GitHub Pro</span>
+                      <span>2 Months GitHub Pro</span>
                     </div>
                     <div className={styles.logoItem}>
-                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
-                      <span>GitHub Copilot</span>
+                      <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
+                      <span>GitAds $20</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
@@ -316,19 +316,19 @@ export default function Home() {
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="https://freelogopng.com/images/all_img/1681038887chatgpt-logo%20black-and-white.png" alt="ChatGPT" width={40} height={40} />
-                      <span>2 Months ChatGPT</span>
+                      <span>1 Month ChatGPT Plus</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
-                      <span>2 Months GitHub Pro</span>
-                    </div>
-                    <div className={styles.logoItem}>
-                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
-                      <span>GitHub Copilot</span>
+                      <span>1 Month GitHub Pro</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="/github_projects.png" alt="Showcase" width={40} height={40} />
-                      <span>Project Showcase</span>
+                      <span>Certification</span>
+                    </div>
+                    <div className={styles.logoItem}>
+                      <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
+                      <span>GitAds $10</span>
                     </div>
                   </div>
                 </div>
@@ -339,12 +339,8 @@ export default function Home() {
                   <h3>Open-Source Contributor Recognition</h3>
                   <div className={styles.rewardLogos}>
                     <div className={styles.logoItem}>
-                      <Image src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub" width={40} height={40} />
-                      <span>2 Months GitHub Pro</span>
-                    </div>
-                    <div className={styles.logoItem}>
-                      <Image src="/github-copilot.png" alt="Copilot" width={40} height={40} />
-                      <span>GitHub Copilot</span>
+                      <Image src="/gitAds_20250305_232426_0000.png" alt="GitAds" width={40} height={40} />
+                      <span>GitAds $5</span>
                     </div>
                     <div className={styles.logoItem}>
                       <Image src="/certificate.png" alt="Certificate" width={40} height={40} />
@@ -373,7 +369,6 @@ export default function Home() {
                     <div key={entry.id || index} className="entry">
                       <h3>{entry.Name}</h3>
                       <p><strong>Repository:</strong> <a href={entry.Repository} target="_blank" rel="noopener noreferrer">{entry.Repository}</a></p>
-                      <p>{entry.Reason}</p>
                       {entry.SubmissionDate && (
                         <p className="submission-date">Submitted on: {new Date(entry.SubmissionDate).toLocaleDateString()}</p>
                       )}
