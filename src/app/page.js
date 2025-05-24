@@ -6,6 +6,7 @@ import CountdownTimer from '../components/CountdownTimer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './page.module.css';
+import Head from 'next/head';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -150,6 +151,31 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>GitAds Open-Source Spotlight Contest</title>
+        <meta name="description" content="Submit your most impactful open-source project. Gain recognition, win rewards, and join the future of ethical monetization with GitAds." />
+        <link rel="icon" href="/favicon.ico" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://contest.gitads.dev" />
+        <meta property="og:title" content="GitAds Open-Source Spotlight Contest" />
+        <meta property="og:description" content="Submit your most impactful open-source project. Gain recognition, win rewards, and join the future of ethical monetization with GitAds." />
+        <meta property="og:image" content="https://contest.gitads.dev/social-preview-card.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="GitAds Open-Source Spotlight Contest" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@git_ads" />
+        <meta name="twitter:creator" content="@git_ads" />
+        <meta name="twitter:title" content="GitAds Open-Source Spotlight Contest" />
+        <meta name="twitter:description" content="Submit your most impactful open-source project. Gain recognition, win rewards, and join the future of ethical monetization with GitAds." />
+        <meta name="twitter:image" content="https://contest.gitads.dev/social-preview-card.png" />
+        <meta name="twitter:image:alt" content="GitAds Open-Source Spotlight Contest" />
+      </Head>
+      
       <div className={styles.headerBanner}>
         <div className={styles.bannerImageWrapper}>
           <Image
