@@ -25,8 +25,8 @@ export default function Home() {
 
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const contestStartDate = '2025-05-24T16:00:00.000Z';
-  const contestEndDate = '2025-06-15T23:59:59.999Z';
+  const contestStartDate = '2025-05-25T06:00:00.000Z';
+  const contestEndDate = '2025-06-16T23:59:59.999Z';
   const [countdownType, setCountdownType] = useState('begins');
   const [countdownTarget, setCountdownTarget] = useState(contestStartDate);
 
@@ -404,7 +404,7 @@ export default function Home() {
         </div>
 
         <p className="footer-note">
-          Contest runs from May 24, 2025 to June 15, 2025. All entries must follow the guidelines.
+          Contest runs from May 25, 2025 to June 16, 2025. All entries must follow the guidelines.
         </p>
 
         <Modal 
