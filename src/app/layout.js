@@ -14,7 +14,7 @@ export const metadata = {
     siteName: 'GitAds Contest',
     images: [
       {
-        url: '/social-card-2.png',
+        url: 'https://raw.githubusercontent.com/hotheadhacker/contesta/refs/heads/main/public/social-card-2.png',
         width: 1200,
         height: 630,
       },
@@ -27,7 +27,7 @@ export const metadata = {
     title: 'GitAds Open-Source Spotlight Contest',
     description: 'Submit your most impactful open-source project. Gain recognition, win rewards, and join the future of ethical monetization with GitAds.',
     creator: '@git_ads',
-    images: ['/social-card-2.png'],
+    images: ['https://raw.githubusercontent.com/hotheadhacker/contesta/refs/heads/main/public/social-card-2.png'],
   },
 }
 
