@@ -161,7 +161,7 @@ export default function Home() {
         <meta property="og:url" content="https://contest.gitads.dev" />
         <meta property="og:title" content="GitAds Open-Source Spotlight Contest" />
         <meta property="og:description" content="Submit your most impactful open-source project. Gain recognition, win rewards, and join the future of ethical monetization with GitAds." />
-        <meta property="og:image" content="https://contest.gitads.dev/social-preview-card.png" />
+        <meta property="og:image" content="https://contest.gitads.dev/social-card-2.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="GitAds Open-Source Spotlight Contest" />
@@ -172,7 +172,7 @@ export default function Home() {
         <meta name="twitter:creator" content="@git_ads" />
         <meta name="twitter:title" content="GitAds Open-Source Spotlight Contest" />
         <meta name="twitter:description" content="Submit your most impactful open-source project. Gain recognition, win rewards, and join the future of ethical monetization with GitAds." />
-        <meta name="twitter:image" content="https://contest.gitads.dev/social-preview-card.png" />
+        <meta name="twitter:image" content="https://contest.gitads.dev/social-card-2.png" />
         <meta name="twitter:image:alt" content="GitAds Open-Source Spotlight Contest" />
       </Head>
       
