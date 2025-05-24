@@ -25,8 +25,8 @@ export default function Home() {
 
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const contestStartDate = '2025-05-24T12:00:00.000Z';
-  const contestEndDate = '2025-06-24T23:59:59.999Z';
+  const contestStartDate = '2025-05-24T16:00:00.000Z';
+  const contestEndDate = '2025-06-15T23:59:59.999Z';
   const [countdownType, setCountdownType] = useState('begins');
   const [countdownTarget, setCountdownTarget] = useState(contestStartDate);
 
@@ -219,21 +219,28 @@ export default function Home() {
         <div className="card">
           <div id="about" className={`tab-content ${activeTab === 'about' ? 'active' : ''}`}>
             <div className="section">
-              <h2>📁 Register & Verify Your Repository</h2>
+              <h1>How to enter contest:</h1>
+              <p>
+                This contest is sponsored by <a href="https://gitads.dev" target="_blank" rel="noopener noreferrer">GitAds</a> and hosted by <a href="https://x.com/githubprojects" target="_blank" rel="noopener noreferrer">GitHub Projects Community</a>
+              </p>
+            </div>
+            <div className="section">
+              <h2>1. Register & Verify Your Repository</h2>
               <p>
                 Sign up as a publisher at <a href="https://gitads.dev" target="_blank" rel="noopener noreferrer">gitads.dev</a> and verify your project to enter.
               </p>
             </div>
             <div className="section">
-              <h2>🐦 Follow @git_ads</h2>
+              <h2>2. Follow <a href="https://x.com/git_ads" target="_blank" rel="noopener noreferrer">@git_ads</a></h2>
               <p>
                 Stay updated and increase your chances of being featured. Follow us on <a href="https://x.com/git_ads" target="_blank" rel="noopener noreferrer">X/Twitter</a>.
               </p>
             </div>
             <div className="section">
-              <h2>⭐ Get Featured on @githubprojects</h2>
+              <h2>3. Submit Your Repository</h2>
               <p>
-                Top entries will be highlighted on <a href="https://x.com/githubprojects" target="_blank" rel="noopener noreferrer">@githubprojects</a> for extra visibility.
+                Submit your project using the form below. Make sure to include a brief description of why your project is valuable to the open-source community.
+                {/* Top entries will be highlighted on <a href="https://x.com/githubprojects" target="_blank" rel="noopener noreferrer">@githubprojects</a> for extra visibility. */}
               </p>
             </div>
             <div className="section">
@@ -397,7 +404,7 @@ export default function Home() {
         </div>
 
         <p className="footer-note">
-          Contest runs from May 24, 2025 to June 23, 2025. All entries must follow the guidelines.
+          Contest runs from May 24, 2025 to June 15, 2025. All entries must follow the guidelines.
         </p>
 
         <Modal 
