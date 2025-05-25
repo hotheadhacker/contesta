@@ -26,7 +26,7 @@ export default function Home() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const contestStartDate = '2025-05-25T06:00:00.000Z';
-  const contestEndDate = '2025-06-16T23:59:59.999Z';
+  const contestEndDate = '2025-06-20T23:59:59.999Z';
   const [countdownType, setCountdownType] = useState('begins');
   const [countdownTarget, setCountdownTarget] = useState(contestStartDate);
 
@@ -229,6 +229,9 @@ export default function Home() {
               <p>
                 Sign up as a publisher at <a href="https://gitads.dev" target="_blank" rel="noopener noreferrer">gitads.dev</a> and verify your project to enter.
               </p>
+              <p>
+                Check <a href="https://docs.gitads.dev" target="_blank" rel="noopener noreferrer">GitAds Publisher Documentation</a> for smooth onboarding of your project/repository.
+              </p>
             </div>
             <div className="section">
               <h2>2. Follow <a href="https://x.com/git_ads" target="_blank" rel="noopener noreferrer">@git_ads</a></h2>
@@ -404,7 +407,7 @@ export default function Home() {
         </div>
 
         <p className="footer-note">
-          Contest runs from May 25, 2025 to June 16, 2025. All entries must follow the guidelines.
+          Contest runs from May 25, 2025 to June 20, 2025. All entries must follow the guidelines.
         </p>
 
         <Modal 
